@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Movie List</string>
+    <string name="poster">poster</string>
+    <string name="title">Title</string>
+    <string name="language">Language</string>
+    <string name="vote_average">Vote Average</string>
+    <string name="vote_count">Vote Count</string>
+    <string name="popularity">Popularity</string>
+    <string name="release_date">Release Date</string>
+</resources>
