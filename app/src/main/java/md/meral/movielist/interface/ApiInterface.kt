@@ -1,7 +1,7 @@
 package md.meral.movielist.`interface`
 
-import md.meral.movielist.constant.Constants.API_KEY
-import md.meral.movielist.constant.Constants.BASE_URL
+import md.meral.movielist.util.Constants.API_KEY
+import md.meral.movielist.util.Constants.BASE_URL
 import md.meral.movielist.model.MoviesResponse
 import retrofit2.Call
 import retrofit2.Retrofit

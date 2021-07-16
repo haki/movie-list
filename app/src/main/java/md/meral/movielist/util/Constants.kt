@@ -1,4 +1,4 @@
-package md.meral.movielist.constant
+package md.meral.movielist.util
 
 object Constants {
     const val API_KEY = "af4a8f51ed5813a07023b752e0fdba85"

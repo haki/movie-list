@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
+//import com.squareup.picasso.Picasso
 import md.meral.movielist.R
-import md.meral.movielist.constant.Constants.BASE_URL
-import md.meral.movielist.constant.Constants.ORIGINAL_POSTER_SIZE
+import md.meral.movielist.util.Constants.ORIGINAL_POSTER_SIZE
 import md.meral.movielist.model.Movie
 import md.meral.movielist.model.MoviesResponse
 
@@ -28,6 +28,8 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
         val voteCount: TextView = view.findViewById(R.id.vote_count)
         val popularity: TextView = view.findViewById(R.id.popularity)
         val releaseDate: TextView = view.findViewById(R.id.release_date)
+
+        val view = view
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -42,7 +44,8 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
 
         val movie = movieList[position]
 
-        Picasso.get().load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
+        //Picasso.get().load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
+        Glide.with(holder.view).load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
         holder.title.text = movie.originalTitle
         holder.language.text = "Original Language: ${movie.originalLanguage}"
         holder.voteAverage.text = "Vote Average: ${movie.voteAverage.toString()}"
