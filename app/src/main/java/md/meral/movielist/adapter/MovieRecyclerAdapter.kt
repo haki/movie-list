@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 //import com.squareup.picasso.Picasso
@@ -14,6 +15,7 @@ import md.meral.movielist.R
 import md.meral.movielist.util.Constants.ORIGINAL_POSTER_SIZE
 import md.meral.movielist.model.Movie
 import md.meral.movielist.model.MoviesResponse
+import md.meral.movielist.view.MovieListFragmentDirections
 
 class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecyclerAdapter.ViewHolder>() {
 
@@ -21,15 +23,26 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-        val poster: ImageView = view.findViewById(R.id.poster)
-        val title: TextView = view.findViewById(R.id.title)
-        val language: TextView = view.findViewById(R.id.language)
-        val voteAverage: TextView = view.findViewById(R.id.vote_average)
-        val voteCount: TextView = view.findViewById(R.id.vote_count)
-        val popularity: TextView = view.findViewById(R.id.popularity)
-        val releaseDate: TextView = view.findViewById(R.id.release_date)
+        private val poster: ImageView = view.findViewById(R.id.poster) // Poster
+        private val title: TextView = view.findViewById(R.id.title) // Title
+        private val language: TextView = view.findViewById(R.id.language) // Language
+        private val voteAverage: TextView = view.findViewById(R.id.vote_average) // Vote Average
+        private val voteCount: TextView = view.findViewById(R.id.vote_count) // Vote Count
+        private val popularity: TextView = view.findViewById(R.id.popularity) // Popularty
+        private val releaseDate: TextView = view.findViewById(R.id.release_date) // Release Date
 
-        val view = view
+        @SuppressLint("SetTextI18n")
+        fun setData(poster: String?, title: String?, language: String?, voteAverage: Double?, voteCount: Int?, popularity: Double?, releaseDate: String?) {
+
+            //Picasso.get().load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
+            Glide.with(itemView).load("$ORIGINAL_POSTER_SIZE${poster}").into(this.poster) // Poster
+            this.title.text = title // Title
+            this.language.text = "Language: $language" // Language
+            this.voteAverage.text = "Vote Average: $voteAverage" // Vote Average
+            this.voteCount.text = "Vote Count: $voteCount" // Vote Count
+            this.popularity.text = "Popularity: $popularity" // Popularity
+            this.releaseDate.text = "Release Date: $releaseDate" // Release Date
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -39,19 +52,16 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
         return ViewHolder(view)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val movie = movieList[position]
 
-        //Picasso.get().load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
-        Glide.with(holder.view).load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
-        holder.title.text = movie.originalTitle
-        holder.language.text = "Original Language: ${movie.originalLanguage}"
-        holder.voteAverage.text = "Vote Average: ${movie.voteAverage.toString()}"
-        holder.voteCount.text = "Vote Count: ${movie.voteCount.toString()}"
-        holder.popularity.text = "Popularity: ${movie.popularity.toString()}"
-        holder.releaseDate.text = "Release Date: ${movie.releaseDate}"
+        holder.setData(movie.posterPath, movie.title, movie.originalLanguage, movie.voteAverage, movie.voteCount, movie.popularity, movie.releaseDate)
+
+        holder.itemView.setOnClickListener {
+            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment("fromList", movie.id!!)
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
