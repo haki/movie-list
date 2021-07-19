@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/poster_image"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:contentDescription="@string/poster" />
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/poster_image"
-            android:layout_margin="12dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/title"
@@ -27,164 +19,197 @@
                 android:textSize="24sp"
                 android:textStyle="italic" />
 
-            <TextView
-                android:id="@+id/genres_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/poster_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="@string/poster"
                 android:layout_below="@id/title"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="@string/genres"
-                android:textColor="@color/purple_700"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/genres"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/genres_title"
-                android:layout_centerHorizontal="true"
-                android:text="@string/genres"
-                android:textColor="@color/teal_700" />
-
-            <TextView
-                android:id="@+id/overview_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/genres"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="@string/overview"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/overview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/overview_title"
-                android:layout_centerHorizontal="true"
-                android:text="@string/overview"
-                android:textColor="@color/black" />
+                android:layout_marginTop="12dp"/>
 
             <RelativeLayout
-                android:id="@+id/group1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/overview"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp">
+                android:layout_below="@id/poster_image"
+                android:layout_margin="12dp">
 
                 <TextView
-                    android:id="@+id/original_language"
+                    android:id="@+id/genres_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/language" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/genres"
+                    android:textColor="@color/purple_700"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/release_date"
+                    android:id="@+id/genres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="38dp"
-                    android:layout_toEndOf="@id/original_language"
-                    android:text="@string/release_date" />
-
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/homepage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/group1"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="@string/home_page"
-                android:textColor="@color/teal_700" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/production_companies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/homepage"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:scrollbars="horizontal" />
-
-            <RelativeLayout
-                android:id="@+id/group2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/production_companies"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp">
+                    android:layout_below="@id/genres_title"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/genres"
+                    android:textColor="@color/teal_700"
+                    android:layout_marginTop="4dp"/>
 
                 <TextView
-                    android:id="@+id/budget"
+                    android:id="@+id/overview_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/budget"
+                    android:layout_below="@id/genres"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/overview"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/revenue"
+                    android:id="@+id/overview"
                     android:layout_width="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/budget"
-                    android:text="@string/revenue"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/runtime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/revenue"
-                    android:text="@string/runtime"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/group3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/group2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp">
-
-                <TextView
-                    android:id="@+id/vote_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/vote_count"
+                    android:layout_below="@id/overview_title"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/overview"
                     android:textColor="@color/black" />
 
-                <TextView
-                    android:id="@+id/popularity"
+                <RelativeLayout
+                    android:id="@+id/group1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/vote_count"
-                    android:text="@string/popularity"
-                    android:textColor="@color/black" />
+                    android:layout_below="@id/overview"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/original_language"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language" />
+
+                    <TextView
+                        android:id="@+id/release_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_toEndOf="@id/original_language"
+                        android:text="@string/release_date" />
+
+                </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/vote_average"
+                    android:id="@+id/homepage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_toEndOf="@id/popularity"
-                    android:text="@string/vote_average"
-                    android:textColor="@color/black" />
+                    android:layout_below="@id/group1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/home_page"
+                    android:textColor="@color/teal_700"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/production_companies_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/homepage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/production_companies"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/production_companies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/production_companies_title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:scrollbars="horizontal" />
+
+                <RelativeLayout
+                    android:id="@+id/group2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/production_companies"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/budget"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/budget"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/revenue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/budget"
+                        android:text="@string/revenue"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/runtime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/revenue"
+                        android:text="@string/runtime"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/group3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/group2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/vote_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vote_count"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/popularity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/vote_count"
+                        android:text="@string/popularity"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/vote_average"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_toEndOf="@id/popularity"
+                        android:text="@string/vote_average"
+                        android:textColor="@color/black" />
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </ScrollView>
 
 </layout>
