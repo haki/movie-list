@@ -28,5 +28,8 @@
         <argument
             android:name="id"
             app:argType="integer" />
+        <argument
+            android:name="language"
+            app:argType="string" />
     </fragment>
 </navigation>

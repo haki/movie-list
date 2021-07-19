@@ -12,20 +12,17 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import md.meral.movielist.R
 import md.meral.movielist.`interface`.ApiInterface
 import md.meral.movielist.adapter.MovieDetailsRecyclerAdapter
 import md.meral.movielist.databinding.FragmentMovieDetailsBinding
 import md.meral.movielist.model.Genres
 import md.meral.movielist.model.MovieDetails
-import md.meral.movielist.model.MoviesResponse
 import md.meral.movielist.util.Constants.ORIGINAL_POSTER_SIZE
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
-class MovieDetailsFragment : Fragment() {
+class MovieDetailsFragment() : Fragment() {
 
     private var _binding: FragmentMovieDetailsBinding? = null
     private val binding get() = _binding!!
@@ -66,7 +63,7 @@ class MovieDetailsFragment : Fragment() {
                 recyclerView.layoutManager = linearLayoutManager
                 recyclerView.adapter = recyclerAdapter
 
-                getMovieDetails(MovieDetailsFragmentArgs.fromBundle(it).id)
+                getMovieDetails(MovieDetailsFragmentArgs.fromBundle(it).id, MovieDetailsFragmentArgs.fromBundle(it).language)
             } else {
 
                 val action = MovieDetailsFragmentDirections.actionMovieDetailsFragmentToMovieListFragment()
@@ -75,9 +72,9 @@ class MovieDetailsFragment : Fragment() {
         }
     }
 
-    private fun getMovieDetails(id: Int) {
+    private fun getMovieDetails(id: Int, language: String) {
 
-        val apiInterface = ApiInterface.create().getMovieDetails(id)
+        val apiInterface = ApiInterface.create().getMovieDetails(id, language)
 
         apiInterface.enqueue(object : Callback<MovieDetails> {
             override fun onResponse(

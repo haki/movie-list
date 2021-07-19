@@ -19,6 +19,7 @@ import md.meral.movielist.view.MovieListFragmentDirections
 
 class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecyclerAdapter.ViewHolder>() {
 
+    private lateinit var language: String
     var movieList: List<Movie> = listOf()
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -31,7 +32,7 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
         private val popularity: TextView = view.findViewById(R.id.popularity) // Popularty
         private val releaseDate: TextView = view.findViewById(R.id.release_date) // Release Date
 
-        @SuppressLint("SetTextI18n")
+        @SuppressLint("SetTextI18n", "ResourceType")
         fun setData(poster: String?, title: String?, language: String?, voteAverage: Double?, voteCount: Int?, popularity: Double?, releaseDate: String?) {
 
             //Picasso.get().load("$ORIGINAL_POSTER_SIZE${movie.posterPath}").into(holder.poster)
@@ -59,7 +60,7 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
         holder.setData(movie.posterPath, movie.title, movie.originalLanguage, movie.voteAverage, movie.voteCount, movie.popularity, movie.releaseDate)
 
         holder.itemView.setOnClickListener {
-            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment("fromList", movie.id!!)
+            val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment("fromList", movie.id!!, language)
             Navigation.findNavController(it).navigate(action)
         }
     }
@@ -68,8 +69,9 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
         return movieList.size
     }
 
-    fun setMovieListItems(body: MoviesResponse) {
+    fun setMovieListItems(body: MoviesResponse, language: String) {
         this.movieList = body.results
+        this.language = language
         notifyDataSetChanged()
     }
 }

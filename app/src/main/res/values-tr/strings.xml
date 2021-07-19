@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Film Listesi</string>
+    <string name="poster">Poster</string>
+    <string name="title">Baslik</string>
+    <string name="language">Dil</string>
+    <string name="vote_average">Oy ortalamasi</string>
+    <string name="vote_count">Toplam oy</string>
+    <string name="popularity">Populerlik</string>
+    <string name="release_date">Cikis Tarihi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="budget">Butce</string>
+    <string name="genres">Turler</string>
+    <string name="overview">Konu</string>
+    <string name="home_page">Anasayfa</string>
+    <string name="revenue">Gelir</string>
+    <string name="runtime">Sure</string>
+    <string name="company_name">Yapimci adi</string>
+    <string name="company_image">Yapimci Gorseli</string>
+    <string name="production_companies">Yapimci Sirketler</string>
+</resources>
