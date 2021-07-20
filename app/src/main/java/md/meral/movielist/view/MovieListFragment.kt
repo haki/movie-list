@@ -1,5 +1,6 @@
 package md.meral.movielist.view
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -46,6 +47,7 @@ class MovieListFragment() : Fragment() {
 
         getLanguages()
 
+        binding.progressBar.visibility = View.VISIBLE
         Handler(Looper.getMainLooper()).postDelayed(this::getMovies, 1000)
 
         // Inflate the layout for this fragment
@@ -74,6 +76,8 @@ class MovieListFragment() : Fragment() {
 
             }
         })
+
+        binding.progressBar.visibility = View.GONE
     }
 
     private fun getLanguages() {
