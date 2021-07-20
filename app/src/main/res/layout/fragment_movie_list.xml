@@ -21,7 +21,7 @@
             android:layout_toStartOf="@id/search_icon"
             android:layout_alignParentStart="true"
             android:layout_marginStart="12dp"
-            android:hint="@string/search_bar_hint"/>
+            android:hint="@string/search_bar_hint" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

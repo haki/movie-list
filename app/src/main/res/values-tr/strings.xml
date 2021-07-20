@@ -18,5 +18,5 @@
     <string name="company_name">Yapımcı adı</string>
     <string name="company_image">Yapımcı Görseli</string>
     <string name="production_companies">Yapımcı Şirketler</string>
-    <string name="search_bar_hint">Lütfen arama yapabilmek için en az 2 harf girin.</string>
+    <string name="search_bar_hint"><font size="15">Lütfen arama yapabilmek için en az 2 harf girin.</font></string>
 </resources>
