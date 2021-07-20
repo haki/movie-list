@@ -24,8 +24,9 @@
             android:layout_height="50dp"
             android:layout_below="@id/company_image"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:text="@string/company_name" />
+            android:layout_margin="4dp"
+            android:text="@string/company_name"
+            android:textAlignment="center"/>
 
     </RelativeLayout>
 

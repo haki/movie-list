@@ -1,9 +1,10 @@
 package md.meral.movielist.view
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,8 +51,52 @@ class MovieListFragment() : Fragment() {
         binding.progressBar.visibility = View.VISIBLE
         Handler(Looper.getMainLooper()).postDelayed(this::getMovies, 1000)
 
+        binding.searchBar.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+                binding.progressBar.visibility = View.VISIBLE
+
+                if (s.toString().length >= 2) {
+
+                    getMoviesBySearch(s)
+                } else {
+                    recyclerAdapter.clear()
+                    getMovies()
+                }
+            }
+        })
+
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    private fun getMoviesBySearch(s: Editable?) {
+        val apiInterface = ApiInterface.create().getMoviesBySearch(s.toString().replace(" ", "+"))
+
+        apiInterface.enqueue(object : Callback<MoviesResponse> {
+            override fun onResponse(
+                call: Call<MoviesResponse>,
+                response: Response<MoviesResponse>
+            ) {
+                if (response?.body()  != null) {
+                    recyclerAdapter.setMovieListItems(response.body()!!, language)
+                }
+            }
+
+            override fun onFailure(call: Call<MoviesResponse>, t: Throwable) {
+
+            }
+        })
+
+        binding.progressBar.visibility = View.GONE
     }
 
     override fun onStart() {
@@ -82,7 +127,7 @@ class MovieListFragment() : Fragment() {
 
     private fun getLanguages() {
 
-        val apiInterface = ApiInterface.createLanguage().getLanguages()
+        val apiInterface = ApiInterface.create().getLanguages()
 
         apiInterface.enqueue(object : Callback<List<Language>> {
             override fun onResponse(

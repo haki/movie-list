@@ -66,6 +66,11 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
     }
 
     override fun getItemCount(): Int {
+
+        if(movieList.size > 15) {
+            return 15
+        }
+
         return movieList.size
     }
 
@@ -73,5 +78,9 @@ class MovieRecyclerAdapter(val context: Context): RecyclerView.Adapter<MovieRecy
         this.movieList = body.results
         this.language = language
         notifyDataSetChanged()
+    }
+
+    fun clear() {
+        movieList = listOf()
     }
 }

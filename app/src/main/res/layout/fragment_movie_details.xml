@@ -7,7 +7,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
 
             <TextView
                 android:id="@+id/title"
@@ -15,6 +16,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="@string/title"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="italic" />
@@ -23,9 +25,9 @@
                 android:id="@+id/poster_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:contentDescription="@string/poster"
                 android:layout_below="@id/title"
-                android:layout_marginTop="12dp"/>
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/poster" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -41,8 +43,8 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/genres"
                     android:textColor="@color/purple_700"
-                    android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/genres"
@@ -50,9 +52,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/genres_title"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
                     android:text="@string/genres"
-                    android:textColor="@color/teal_700"
-                    android:layout_marginTop="4dp"/>
+                    android:textColor="@color/teal_700" />
 
                 <TextView
                     android:id="@+id/overview_title"
@@ -64,18 +66,19 @@
                     android:text="@string/overview"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/overview"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/overview_title"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="24dp"
                     android:text="@string/overview"
+                    android:textAlignment="center"
                     android:textColor="@color/black" />
 
                 <RelativeLayout
@@ -111,7 +114,7 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/home_page"
                     android:textColor="@color/teal_700"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/production_companies_title"
@@ -121,8 +124,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="12dp"
                     android:text="@string/production_companies"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/production_companies"
@@ -146,6 +149,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/budget"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -156,6 +160,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_toEndOf="@id/budget"
                         android:text="@string/revenue"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -166,6 +171,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_toEndOf="@id/revenue"
                         android:text="@string/runtime"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -184,6 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/vote_count"
+                        android:textAlignment="center"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -193,6 +200,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_toEndOf="@id/vote_count"
                         android:text="@string/popularity"
+                        android:textAlignment="center"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -202,6 +210,7 @@
                         android:layout_marginStart="12dp"
                         android:layout_toEndOf="@id/popularity"
                         android:text="@string/vote_average"
+                        android:textAlignment="center"
                         android:textColor="@color/black" />
 
                 </RelativeLayout>

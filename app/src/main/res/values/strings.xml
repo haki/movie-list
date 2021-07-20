@@ -18,4 +18,5 @@
     <string name="company_name">Company Name</string>
     <string name="company_image">Company Image</string>
     <string name="production_companies">Production Companies</string>
+    <string name="search_bar_hint">Please type minimum 2 letter for searching</string>
 </resources>
